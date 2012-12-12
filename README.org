@@ -1,0 +1,5 @@
+* Maze Logic
+Solving mazes using Clojure's core.logic library.
+** Attempt 1
+Using only core logic primitives.
+
