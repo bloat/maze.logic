@@ -1,26 +1,7 @@
 (ns maze.logic.attempt1
   (:refer-clojure :exclude [==]) 
-  (:use [clojure.core logic]))
-
-(def a-maze
-  [10 #{[35 34] [69 68] [6 5] [7 6] [8 7] [9 8] [41 40] [42 41] 
-        [45 44] [46 45] [16 15] [49 48] [19 18] [83 82] [52 51]
-        [84 83] [85 84] [54 53] [86 85] [55 54] [26 25] [27 26]
-        [59 58] [91 90] [28 27] [92 91] [93 92] [94 93] [31 30]
-        [63 62] [96 95] [1 0] [65 64] [2 3] [98 99] [10 11] [42 43]
-        [11 12] [75 76] [77 78] [78 79] [20 21] [21 22] [22 23]
-        [88 89] [96 97] [1 2] [97 98] [3 13] [84 94] [86 96] [67 57]
-        [69 59] [38 28] [70 60] [39 29] [71 61] [41 31] [73 63]
-        [42 32] [11 1] [43 33] [75 65] [76 66] [45 35] [77 67] [14 4]
-        [46 36] [47 37] [79 69] [48 38] [80 70] [49 39] [81 71]
-        [82 72] [19 9] [83 73] [20 10] [52 42] [84 74] [85 75] [87 77]
-        [24 14] [56 46] [57 47] [26 16] [90 80] [27 17] [59 49]
-        [91 81] [60 50] [29 19] [30 20] [62 52] [65 55] [97 87]
-        [34 24] [66 56] [98 88]}])
-
-(def a-maze2 [2 #{[2 3] [3 1] [2 0]}])
-(def a-maze3 [3 #{[4 3] [1 0] [1 2] [2 5] [3 6] [4 7] [5 8] [1 4]}])
-(def a-maze4 [4 #{[2 1] [5 6] [6 7] [10 11] [12 13] [13 14] [14 15] [4 0] [6 2] [7 3] [8 4] [9 5] [12 8] [13 9] [14 10]}])
+  (:use [clojure.core logic]
+        [maze.logic.mazes]))
 
 (defn path-in-maze [p mz]
   (let [mz-paths (vec (second mz))]
@@ -95,4 +76,29 @@ with another element of l."
         (valid-path q maze)
         (distincto q)))
 
-(mz-solve a-maze)
+(comment 
+  (mz-solve a-maze2)
+  (mz-solve a-maze3)
+  (mz-solve a-maze4)
+  (mz-solve a-maze5)
+  (mz-solve a-maze6)
+  ;; After this point its too slow for my computer
+  (mz-solve a-maze7)
+  (mz-solve a-maze8)
+  (mz-solve a-maze9)
+  (mz-solve a-maze10))
+
+;; This file is part of Maze Logic.
+
+;; Maze Logic is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; Maze Logic is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with Maze Logic. If not, see <http://www.gnu.org/licenses/>.
