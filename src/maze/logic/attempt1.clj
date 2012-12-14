@@ -58,16 +58,45 @@
          (!= s1 [a b])
          (!= s1 [b a])))
 
-(defne distincto
-  "A relation which guarantees no element of l will unify
-with another element of l."
-  [l]
-  ([()])
-  ([[h]])
-  ([[h0 h1 . t]]
-     (steps-unequal h0 h1)
-     (distincto (lcons h0 t))
-     (distincto (lcons h1 t))))
+;; (defne distincto
+;;   "A relation which guarantees no element of l will unify
+;; with another element of l."
+;;   [l]
+;;   ([()])
+;;   ([[h]])
+;;   ([[h0 h1 . t]]
+;;      (steps-unequal h0 h1)
+;;      (distincto (lcons h0 t))
+;;      (distincto (lcons h1 t))))
+
+;; Borrowed distincto from core logic 0.8 beta and 
+;; reimplemented it in basic core.logic style.
+(defn distincto [p]
+  (conde
+   ;; the empty list is ok
+   ((emptyo p))
+   ;; a list with only one element is ok
+   ((fresh [t]
+           (resto p t)
+           (emptyo t)))
+   ;; otherwise
+   ((fresh [h0 h1 t0 t1 a0 a1]
+           ;; get the first element into h0
+           (firsto p h0)
+           ;; get the second element (the first of the rest) into h1
+           (resto p t0)
+           (firsto t0 h1)
+           ;; get the rest of the rest into t1
+           (resto t0 t1)
+           ;; the first and second elements are unequal
+           (steps-unequal h0 h1)
+           ;; a0 is a list with the first element and t1
+           (conso h0 t1 a0)
+           ;; a1 is a list with the second element and t1
+           (conso h1 t1 a1)
+           ;; make sure the two new lists are also distinct
+           (distincto a0)
+           (distincto a1)))))
 
 (defn mz-solve [maze]
   (run 1 [q] 
@@ -82,7 +111,7 @@ with another element of l."
   (mz-solve a-maze4)
   (mz-solve a-maze5)
   (mz-solve a-maze6)
-  ;; After this point its too slow for my computer
+  ;; After this point its too slow for my computer.
   (mz-solve a-maze7)
   (mz-solve a-maze8)
   (mz-solve a-maze9)
