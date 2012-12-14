@@ -1,7 +1,22 @@
 * Maze Logic
-Solving mazes using Clojure's core.logic library.
+Solving mazes using Clojure's core.logic library. 
+
+The mazes are generated using some maze generation code in my project
+[[http://github.com/bloat/maze-game][Maze Game]]. Each maze is two element vector containing the size of the
+maze and a set of paths. The mazes are laid out on a square grid, so
+the size is the number of cells along one side of the grid and each
+path is a vector of two adjacent cell indices. The cells are numbered
+from 0 at the top left to 99 (for a size 10 maze) at the bottom
+right. Any path not in the list of paths is assumed to be blocked by a
+wall.
+
+The mazes have no loops in them, so they are essentially trees.
 ** Attempt 1
-Using only core logic primitives.
+The first attempt to solve mazes uses only the most basic core.logic
+functionality. This is my way of learning basic list manipulation in
+the core.logic style. This also shows how the default is to combine
+relations with a logical and just by listing them one after the other
+inside a fresh block, and how conde is required to use logical or.
 * LICENSE
 This file is part of Maze Logic.
 
