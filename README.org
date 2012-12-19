@@ -17,6 +17,27 @@ functionality. This is my way of learning basic list manipulation in
 the core.logic style. This also shows how the default is to combine
 relations with a logical and just by listing them one after the other
 inside a fresh block, and how conde is required to use logical or.
+
+[[https://github.com/bloat/maze.logic/blob/master/src/maze/logic/attempt1.clj][Source Code]]
+#+BEGIN_SRC clojure
+(require 'maze.logic.attempt1)
+(in-ns 'maze.logic.attempt1)
+(maze.solve a-maze2)
+(maze.solve a-maze3)
+#+END_SRC
+** Attempt 2
+This attempt doesn't introduce anything new in terms on core.logic
+techniques. Instead I'm trying to speed things up by using a simpler
+way of representing solutions. Unfortunately it doesn't seem any
+faster and still baulks at anything over a 6x6 maze.
+
+[[https://github.com/bloat/maze.logic/blob/master/src/maze/logic/attempt2.clj][Source Code]]
+#+BEGIN_SRC clojure
+(require 'maze.logic.attempt1)
+(in-ns 'maze.logic.attempt1)
+(maze.solve a-maze2)
+(maze.solve a-maze3)
+#+END_SRC
 * LICENSE
 This file is part of Maze Logic.
 
