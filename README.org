@@ -22,8 +22,8 @@ inside a fresh block, and how conde is required to use logical or.
 #+BEGIN_SRC clojure
 (require 'maze.logic.attempt1)
 (in-ns 'maze.logic.attempt1)
-(maze.solve a-maze2)
-(maze.solve a-maze3)
+(mz-solve a-maze2)
+(mz-solve a-maze3)
 #+END_SRC
 ** Attempt 2
 This attempt doesn't introduce anything new in terms on core.logic
@@ -33,10 +33,10 @@ faster and still baulks at anything over a 6x6 maze.
 
 [[https://github.com/bloat/maze.logic/blob/master/src/maze/logic/attempt2.clj][Source Code]]
 #+BEGIN_SRC clojure
-(require 'maze.logic.attempt1)
-(in-ns 'maze.logic.attempt1)
-(maze.solve a-maze2)
-(maze.solve a-maze3)
+(require 'maze.logic.attempt2)
+(in-ns 'maze.logic.attempt2)
+(mz-solve a-maze2)
+(mz-solve a-maze3)
 #+END_SRC
 * LICENSE
 This file is part of Maze Logic.
