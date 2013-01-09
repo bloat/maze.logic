@@ -19,7 +19,7 @@
      (fresh [t1]
             (path-in-maze [?h0 ?h1] mz)
             (conso ?h1 ?t t1)
-            (vp t1 mz))))
+            (valid-path t1 mz))))
 
 (defne no-back-track [p]
   ([[]])
