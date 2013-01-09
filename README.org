@@ -38,6 +38,21 @@ faster and still baulks at anything over a 6x6 maze.
 (mz-solve a-maze2)
 (mz-solve a-maze3)
 #+END_SRC
+** Attempt 3
+This third attempt introduces core.logic pattern matching using defne
+and matche. The algorithm is the same, but the functions have been
+rewritten and most of the usages of firsto and resto (used to assign
+logic variables to the members of the incoming lists) have been
+replaced in favour of using defne's pattern matching capabaility which
+can do the same job in a much more concise fashion.
+
+[[https://github.com/bloat/maze.logic/blob/master/src/maze/logic/attempt3.clj][Source Code]]
+#+BEGIN_SRC clojure
+(require 'maze.logic.attempt3)
+(in-ns 'maze.logic.attempt3)
+(mz-solve a-maze2)
+(mz-solve a-maze3)
+#+END_SRC
 * LICENSE
 This file is part of Maze Logic.
 
